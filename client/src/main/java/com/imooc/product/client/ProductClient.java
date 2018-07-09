@@ -2,12 +2,15 @@ package com.imooc.product.client;
 
 import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutput;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+
+//import org.springframework.cloud.netflix.feign.FeignClient;
+
 
 /**
  * Created by 廖师兄
