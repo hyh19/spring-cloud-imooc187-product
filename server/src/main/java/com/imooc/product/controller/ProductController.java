@@ -81,13 +81,11 @@ public class ProductController {
      */
     @PostMapping("/listForOrder")
     public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productIdList) {
-//        return productService.findList(productIdList);
-        return null;
+        return productService.findList(productIdList);
     }
 
     @PostMapping("/decreaseStock")
     public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList) {
-//        productService.decreaseStock(cartDTOList);
-        return;
+        productService.decreaseStock(decreaseStockInputList);
     }
 }
