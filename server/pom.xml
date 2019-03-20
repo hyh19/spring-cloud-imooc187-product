@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.imooc</groupId>
-    <artifactId>server</artifactId>
+    <artifactId>product-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
@@ -37,8 +37,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>com.imooc</groupId>
+            <artifactId>product-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
