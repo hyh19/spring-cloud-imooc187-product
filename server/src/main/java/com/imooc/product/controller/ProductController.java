@@ -10,6 +10,7 @@ import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.utils.ResultVOUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/product")
+@Slf4j
 public class ProductController {
 
     @Autowired
@@ -82,6 +84,7 @@ public class ProductController {
      */
     @PostMapping("/listForOrder")
     public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productIdList) {
+        log.info("获取商品列表(给订单服务用的)");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
