@@ -13,8 +13,8 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,6 +50,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void decreaseStock(List<DecreaseStockInput> decreaseStockInputList) {
         List<ProductInfo> productInfoList = decreaseStockProcess(decreaseStockInputList);
 
@@ -63,7 +64,7 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
-    @Transactional
+    //@Transactional 这里有bug，改注解在类的内部调用是不生效的，所以应该放到decreaseStock()方法上
     public List<ProductInfo> decreaseStockProcess(List<DecreaseStockInput> decreaseStockInputList) {
         List<ProductInfo> productInfoList = new ArrayList<>();
         for (DecreaseStockInput decreaseStockInput: decreaseStockInputList) {
